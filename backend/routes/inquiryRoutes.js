@@ -1,11 +1,11 @@
 import express from "express";
 import Inquiry from "../models/Inquiry.js";
-import { verifyAdmin } from "./adminRoutes.js"; // ✅ Import admin verification middleware
+import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 /**
- * 📩 POST — Create a new inquiry (Public)
+ * 📩 POST — Create Inquiry (Public)
  */
 router.post("/", async (req, res) => {
   try {
@@ -19,32 +19,27 @@ router.post("/", async (req, res) => {
 });
 
 /**
- * 📤 GET — Fetch all inquiries (Admin only)
- * Supports filters, search, and pagination.
- * Example: /api/inquiry?search=Ali&type=Short%20Course&page=1&limit=10
+ * 📤 GET — Fetch All Inquiries (Admin Only)
  */
-router.get("/", verifyAdmin, async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const { search = "", type = "", page = 1, limit = 10, status = "" } = req.query;
 
     const query = {};
 
-    // 🔍 Search by name or email
     if (search) {
       query.$or = [
         { fullName: { $regex: search, $options: "i" } },
-        { email: { $regex: search, $options: "i" } },
+        { email: { $regex: search, $options: "i" } }
       ];
     }
 
-    // 🎓 Filter by course type
     if (type) query.courseType = type;
-
-    // ⚙️ Filter by inquiry status
     if (status) query.status = status;
 
     const skip = (page - 1) * limit;
     const total = await Inquiry.countDocuments(query);
+
     const inquiries = await Inquiry.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
@@ -64,17 +59,13 @@ router.get("/", verifyAdmin, async (req, res) => {
 });
 
 /**
- * 📝 PATCH — Update inquiry (Admin only)
- * Updates any editable field
+ * 📝 PATCH — Update Inquiry (Admin Only)
  */
-router.patch("/:id", verifyAdmin, async (req, res) => {
+router.patch("/:id", verifyToken, async (req, res) => {
   try {
-    const { id } = req.params;
-    console.log("🟡 Received update request for:", id, req.body);
-
     const updatedInquiry = await Inquiry.findByIdAndUpdate(
-      id,
-      { $set: req.body }, // ✅ apply all updated fields
+      req.params.id,
+      { $set: req.body },
       { new: true, runValidators: true }
     );
 
@@ -93,17 +84,16 @@ router.patch("/:id", verifyAdmin, async (req, res) => {
   }
 });
 
-
-
 /**
- * 🗑️ DELETE — Remove an inquiry by ID (Admin only)
+ * 🗑️ DELETE — Delete Inquiry (Admin Only)
  */
-router.delete("/:id", verifyAdmin, async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleted = await Inquiry.findByIdAndDelete(id);
-    if (!deleted)
+    const deleted = await Inquiry.findByIdAndDelete(req.params.id);
+
+    if (!deleted) {
       return res.status(404).json({ message: "Inquiry not found!" });
+    }
 
     res.json({ success: true, message: "Inquiry deleted successfully!" });
   } catch (err) {
