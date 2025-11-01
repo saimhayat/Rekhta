@@ -116,6 +116,8 @@
 .dropdown {
   position: relative;
   cursor: pointer;
+  position: relative;
+  z-index: 9999;
 }
 
 .arrow {
@@ -135,12 +137,15 @@
   list-style: none;
   padding: 8px 0;
   width: 200px;
-  z-index: 999;
+  z-index: 999999; /* <-- bump priority */
   box-shadow: 0 6px 20px rgba(10, 60, 109, 0.15);
+  overflow: visible;
 }
 
 .dropdown-menu li {
   padding: 10px 16px;
+  position: relative;
+  z-index: 100000;
 }
 
 .dropdown-menu li a {
@@ -155,6 +160,12 @@
   color: #c89b3c;
   border-radius: 6px;
 }
+
+.dropdown-menu a {
+  position: relative;
+  z-index: inherit;
+}
+
 
 /* === Inquiry Button === */
 .inquiry-btn {
@@ -225,6 +236,7 @@
 
   .navbar-links {
     gap: 20px;
+    overflow: visible !important;
   }
 
   .inquiry-btn {
