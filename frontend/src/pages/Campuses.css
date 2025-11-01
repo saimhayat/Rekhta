@@ -1,0 +1,203 @@
+.campuses-section {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0e0e0e 0%, #1a1a1a 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 5%;
+}
+
+.campuses-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1300px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Left Content */
+.campuses-content {
+  flex: 1 1 55%;
+}
+
+.campuses-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ffcc70, #ff9966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.campuses-content p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* Campus list styling */
+.campus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.campus-box {
+  padding: 25px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.campus-box:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.02);
+}
+
+.campus-box h3 {
+  font-size: 1.3rem;
+  color: #ffcc70;
+  margin-bottom: 8px;
+}
+
+.campus-box .address {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.campus-box .contact {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 4px;
+}
+
+.campus-box .tag {
+  font-size: 0.85rem;
+  color: #ffd580;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Right side map */
+.campuses-map {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.campuses-map img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+  opacity: 0.9;
+  transition: transform 0.4s ease;
+}
+
+.campuses-map img:hover {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+/* ✅ Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .campuses-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .campuses-content {
+    text-align: center;
+  }
+
+  .campuses-content h2 {
+    font-size: 2rem;
+  }
+
+  .campuses-map {
+    margin-top: 20px;
+    padding: 20px;
+  }
+}
+
+/* ✅ Mobile (≤768px) */
+@media (max-width: 768px) {
+  .campuses-section {
+    padding: 60px 5%;
+  }
+
+  .glass-card {
+    padding: 25px;
+  }
+
+  .campuses-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .campuses-content p {
+    font-size: 0.95rem;
+  }
+
+  .campus-box {
+    padding: 20px;
+  }
+
+  .campus-box h3 {
+    font-size: 1.1rem;
+  }
+
+  .campuses-map img {
+    max-width: 350px;
+  }
+}
+
+/* ✅ Small phones (≤480px) */
+@media (max-width: 480px) {
+  .campuses-section {
+    padding: 40px 4%;
+  }
+
+  .campuses-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .campuses-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .campus-box h3 {
+    font-size: 1rem;
+  }
+
+  .campuses-map img {
+    max-width: 300px;
+  }
+
+  .campuses-map {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,100 @@
+/* .campus-life-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  padding: 100px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  color: white;
+} */
+
+/* Each section box */
+/* .campus-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  padding: 60px;
+  transition: all 0.3s ease-in-out;
+} */
+
+/* Reverse layout for alternate sections */
+/* .reverse-layout {
+  flex-direction: row-reverse;
+} */
+
+/* Text content */
+/* .campus-text {
+  flex: 1 1 45%;
+}
+
+.campus-text h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #ffcc70, #ff9966);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.campus-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+} */
+
+/* Image box */
+/* .campus-image-box {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.campus-image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+.campus-image-box img:hover {
+  transform: scale(1.04);
+} */
+
+/* Responsive design */
+/* @media (max-width: 900px) {
+  .campus-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+
+  .reverse-layout {
+    flex-direction: column;
+  }
+
+  .campus-text {
+    flex: 1 1 100%;
+  }
+
+  .campus-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .campus-text p {
+    font-size: 1rem;
+  }
+
+  .campus-image-box {
+    flex: 1 1 100%;
+  }
+} */

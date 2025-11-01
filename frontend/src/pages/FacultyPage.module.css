@@ -1,0 +1,225 @@
+/* FacultyPage.module.css */
+
+.facultyContainer {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #000000, #000000, #000000);
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+/* ===== Banner Section ===== */
+.bannerSection {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1500&q=80");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.bannerOverlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerContent h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+  text-stroke: 1px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Section Styling ===== */
+.section {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Faculty Grid ===== */
+.facultyGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== Faculty Card ===== */
+.facultyCard {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 25px;
+  width: 280px;
+  box-shadow: 0 6px 18px rgba(10, 60, 109, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.facultyCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(10, 60, 109, 0.35);
+}
+
+.facultyPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 60% 50%;
+  margin-bottom: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.facultyCard h3 {
+  font-size: 1.3rem;
+  margin: 10px 0 6px;
+  color: #fff;
+}
+
+.designation {
+  font-weight: 600;
+  color: #c89b3c;
+  margin-bottom: 8px;
+}
+
+.qualifications,
+.contact {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 4px 0;
+}
+
+/* ============================== */
+/* ✅ Responsive Design Enhancements */
+/* ============================== */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .bannerSection {
+    height: 50vh;
+  }
+
+  .bannerContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .section {
+    padding: 60px 5%;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .facultyGrid {
+    gap: 25px;
+  }
+
+  .facultyCard {
+    width: 240px;
+    padding: 20px;
+  }
+
+  .facultyPhoto {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .bannerSection {
+    height: 45vh;
+  }
+
+  .bannerContent h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .facultyGrid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .facultyCard {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .facultyPhoto {
+    width: 100px;
+    height: 100px;
+  }
+
+  .facultyCard h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .bannerSection {
+    height: 40vh;
+  }
+
+  .bannerContent h1 {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .section {
+    padding: 50px 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+
+  .facultyCard {
+    padding: 18px;
+    width: 100%;
+  }
+
+  .facultyCard h3 {
+    font-size: 1.1rem;
+  }
+
+  .facultyPhoto {
+    width: 90px;
+    height: 90px;
+  }
+
+  .qualifications,
+  .contact {
+    font-size: 0.85rem;
+  }
+}

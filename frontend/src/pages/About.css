@@ -1,0 +1,304 @@
+/* =========================================================
+   🌐 ABOUT PAGE — Glassmorphism Theme
+   ========================================================= */
+
+.about-container {
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 80px; /* ✅ Prevents hidden top text under navbar */
+}
+
+/* ===== Hero Section ===== */
+.about-hero {
+  background-image: url("https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-hero-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-hero-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 40px 60px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 800px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.about-hero-content .highlight {
+  color: #c89b3c;
+}
+
+.about-hero-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Mission & Vision ===== */
+.mission-vision-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 80px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-top: 30px; /* ✅ Extra breathing room */
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(10, 60, 109, 0.25);
+  transition: all 0.3s ease;
+  max-width: 500px;
+  text-align: center;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 28px rgba(10, 60, 109, 0.35);
+}
+
+/* ===== Journey Section ===== */
+.about-journey {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.about-journey h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.journey-timeline {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.timeline-item {
+  width: 300px;
+}
+
+/* ===== Leadership Section ===== */
+.leadership-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.leadership-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-top: 50px;
+}
+
+.leader-card {
+  width: 250px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.leader-card img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  object-position: 27% 30%;
+  height: 280px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.leader-card h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.leader-card p {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
+/* ===== Call to Action ===== */
+.about-cta {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 60, 109, 0.6),
+    rgba(200, 155, 60, 0.4)
+  );
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cta-content p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  background: linear-gradient(135deg, #c89b3c, #b58d30);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 155, 60, 0.3);
+}
+
+.cta-btn:hover {
+  background: #c89b3c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 155, 60, 0.45);
+}
+
+/* =========================================================
+   📱 Responsive Design
+   ========================================================= */
+@media (max-width: 1024px) {
+  .about-hero-content {
+    padding: 30px 40px;
+    max-width: 90%;
+  }
+
+  .about-hero-content h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 60vh;
+  }
+
+  .about-hero-content {
+    padding: 25px 30px;
+  }
+
+  .about-hero-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .about-hero-content p {
+    font-size: 1rem;
+  }
+
+  .mission-vision-section {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
+
+  .glass-card {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 35px; /* ✅ card has breathing room */
+  }
+
+  .journey-timeline {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leader-card {
+    width: 90%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-hero {
+    height: 50vh; /* ✅ Mobile hero not too tall */
+  }
+
+  .about-hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .about-journey h2,
+  .cta-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-content p {
+    font-size: 0.9rem;
+  }
+
+  .cta-btn {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .leader-card img {
+    height: 240px;
+  }
+
+  .glass-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-hero-content {
+    padding: 20px;
+  }
+
+  .about-hero-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .cta-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .cta-btn {
+    font-size: 0.9rem;
+  }
+}

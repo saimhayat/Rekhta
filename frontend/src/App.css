@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top right, #000000, #000000, #000000);
+  color: #e5e5e5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated gradient border effect */
+@keyframes glowShift {
+  0% { box-shadow: 0 0 20px #00e0ff, inset 0 0 20px #6a00f4; }
+  50% { box-shadow: 0 0 30px #6a00f4, inset 0 0 30px #00e0ff; }
+  100% { box-shadow: 0 0 20px #00e0ff, inset 0 0 20px #6a00f4; }
+}
+
+/* Glass Card */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 25px;
+  animation: glowShift 6s ease-in-out infinite alternate;
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, #00e0ff, #6a00f4);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 224, 255, 0.5);
+}
+
+/* 🌍 Responsive Design */
+
+/* Tablets (width ≤ 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+
+  .glass {
+    padding: 20px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Large Phones (width ≤ 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .glass {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Phones (width ≤ 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .glass {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .btn {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+
+  /* Reduce glow for smaller screens */
+  @keyframes glowShift {
+    0% { box-shadow: 0 0 10px #00e0ff, inset 0 0 10px #6a00f4; }
+    50% { box-shadow: 0 0 15px #6a00f4, inset 0 0 15px #00e0ff; }
+    100% { box-shadow: 0 0 10px #00e0ff, inset 0 0 10px #6a00f4; }
+  }
+}
+

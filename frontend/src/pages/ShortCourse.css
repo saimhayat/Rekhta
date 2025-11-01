@@ -1,0 +1,298 @@
+/* =========================================================
+   🌐 SHORT COURSE SECTION — Glassmorphism Theme
+   ========================================================= */
+
+.shortcourse-container {
+  padding: 60px 80px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.shortcourse-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.shortcourse-intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   🎨 Tabs Section
+   ========================================================= */
+.course-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.tab-button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  background: rgba(255, 255, 255, 0.5);
+  color: #000;
+  font-weight: 600;
+}
+
+.tab-button:hover {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   🧱 Course Content Layout — FIXED HORIZONTAL BOX
+   ========================================================= */
+.course-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 50px 60px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 1200px;
+  margin: 0 auto; /* Center horizontally */
+}
+
+.course-text {
+  flex: 1;
+  max-width: 50%;
+  color: #fff;
+  text-align: left;
+}
+
+.course-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.course-text p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.course-details p {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Image Section */
+.course-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.course-image img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.course-image img:hover {
+  transform: scale(1.03);
+}
+
+/* =========================================================
+   ✨ Animations
+   ========================================================= */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-left {
+  animation: slideLeft 0.8s ease forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   📱 Responsive Design
+   ========================================================= */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .shortcourse-container {
+    padding: 50px 60px;
+  }
+
+  .shortcourse-title {
+    font-size: 2.5rem;
+  }
+
+  .course-content {
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .course-text {
+    max-width: 55%;
+  }
+
+  .course-image img {
+    max-width: 380px;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .shortcourse-container {
+    padding: 40px 30px;
+  }
+
+  .shortcourse-title {
+    font-size: 2.2rem;
+  }
+
+  .shortcourse-intro {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .course-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .course-text {
+    max-width: 100%;
+  }
+
+  .course-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .course-details p {
+    font-size: 0.95rem;
+  }
+
+  .course-image {
+    justify-content: center;
+  }
+
+  .course-image img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .tab-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .shortcourse-container {
+    padding: 30px 20px;
+  }
+
+  .shortcourse-title {
+    font-size: 1.8rem;
+  }
+
+  .shortcourse-intro {
+    font-size: 0.95rem;
+  }
+
+  .course-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .course-text p,
+  .course-details p {
+    font-size: 0.9rem;
+  }
+
+  .course-image img {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .tab-button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Large Screens (≥1440px) */
+@media (min-width: 1440px) {
+  .course-content {
+    gap: 100px;
+    padding: 80px;
+    max-width: 1300px;
+  }
+
+  .course-image img {
+    max-width: 500px;
+  }
+}
