@@ -19,7 +19,7 @@ const AdminLogin = () => {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/admin/login", form);
+      const res = await axios.post("https://rekhta-orpin.vercel.app/api/admin/login", form);
       localStorage.setItem("adminToken", res.data.token);
       navigate("/admin");
     } catch (err) {

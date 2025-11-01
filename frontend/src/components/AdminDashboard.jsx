@@ -31,7 +31,7 @@ const AdminDashboard = () => {
       }
 
       try {
-        const res = await fetch("http://localhost:5000/api/inquiry", {
+        const res = await fetch("https://rekhta-orpin.vercel.app/api/inquiry", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
 
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await fetch(`http://localhost:5000/api/inquiry/${id}`, {
+      const res = await fetch(`https://rekhta-orpin.vercel.app/api/inquiry/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem("adminToken");
       const res = await fetch(
-        `http://localhost:5000/api/inquiry/${editingId}`,
+        `https://rekhta-orpin.vercel.app/api/inquiry/${editingId}`,
         {
           method: "PATCH",
           headers: {
