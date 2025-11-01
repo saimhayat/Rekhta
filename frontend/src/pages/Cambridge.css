@@ -1,17 +1,18 @@
 .cambridge-container {
-  padding: 2rem 5%;
+  padding: 2rem clamp(1rem, 4vw, 5%);
   color: #fff;
   background: #000000;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ===== Title ===== */
 .cambridge-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #ffffff, #ffffff);
+  background: linear-gradient(90deg, #ffffff, #e2e8f0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -22,8 +23,9 @@
   max-width: 850px;
   margin: 0 auto 3rem;
   color: #cbd5e0;
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.75;
+  padding: 0 0.5rem;
 }
 
 /* ===== Tabs ===== */
@@ -37,16 +39,18 @@
 
 .cambridge-tab-button {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.7rem 1.8rem;
   border-radius: 50px;
   color: #e2e8f0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
   backdrop-filter: blur(10px);
+  font-size: 0.95rem;
 }
 
-.cambridge-tab-button:hover {
+.cambridge-tab-button:hover,
+.cambridge-tab-button:focus-visible {
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -62,7 +66,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1rem, 4vw, 2rem);
   padding: 2rem;
   border-radius: 1.5rem;
   background: rgba(255, 255, 255, 0.1);
@@ -71,12 +75,11 @@
 }
 
 .cambridge-text {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 320px;
 }
 
 .cambridge-text h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
   margin-bottom: 1rem;
 }
 
@@ -84,22 +87,23 @@
   color: #e2e8f0;
   margin-bottom: 1.2rem;
   line-height: 1.6;
+  font-size: 0.98rem;
 }
 
 .cambridge-text ul {
   list-style: disc;
-  margin-left: 1.5rem;
+  margin-left: 1.4rem;
 }
 
 .cambridge-image {
-  flex: 1;
+  flex: 1 1 330px;
   display: flex;
   justify-content: center;
 }
 
 .cambridge-image img {
   width: 100%;
-  max-width: 450px;
+  max-width: 440px;
   border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   object-fit: cover;
@@ -125,44 +129,22 @@
    📱 RESPONSIVE DESIGN
    ========================================================= */
 
-/* ✅ For tablets and small laptops */
+/* ✅ Tablets */
 @media (max-width: 992px) {
-  .cambridge-title {
-    font-size: 2rem;
-  }
-
-  .cambridge-intro {
-    font-size: 1rem;
-    max-width: 700px;
-  }
-
   .cambridge-content {
     padding: 1.5rem;
   }
-
-  .cambridge-text h2 {
-    font-size: 1.6rem;
-  }
 }
 
-/* ✅ For phones */
+/* ✅ Phones */
 @media (max-width: 768px) {
-  .cambridge-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .cambridge-title {
-    font-size: 1.8rem;
-  }
-
   .cambridge-tabs {
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
   }
 
   .cambridge-tab-button {
-    width: 80%;
+    width: 85%;
     max-width: 300px;
     text-align: center;
   }
@@ -170,46 +152,18 @@
   .cambridge-content {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem 1rem;
-  }
-
-  .cambridge-text {
-    order: 2;
-  }
-
-  .cambridge-image {
-    order: 1;
+    padding: 1.3rem;
   }
 
   .cambridge-image img {
-    max-width: 100%;
     width: 90%;
-  }
-
-  .cambridge-text h2 {
-    font-size: 1.4rem;
-  }
-
-  .cambridge-text p {
-    font-size: 0.95rem;
   }
 }
 
-/* ✅ For very small phones */
+/* ✅ Very Small Phones */
 @media (max-width: 480px) {
-  .cambridge-title {
-    font-size: 1.6rem;
-  }
-
-  .cambridge-intro {
-    font-size: 0.9rem;
-    padding: 0 0.5rem;
-  }
-
-  .cambridge-tab-button {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 0.7rem 1.2rem;
+  .cambridge-container {
+    padding: 1.2rem;
   }
 
   .cambridge-content {
@@ -217,11 +171,9 @@
     border-radius: 1rem;
   }
 
-  .cambridge-text h2 {
-    font-size: 1.2rem;
-  }
-
-  .cambridge-text p {
-    font-size: 0.9rem;
+  .cambridge-tab-button {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
   }
 }

@@ -6,7 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 5%;
+  padding: clamp(60px, 10vw, 100px) 5%;
+  overflow-x: hidden;
 }
 
 .campuses-container {
@@ -15,23 +16,25 @@
   justify-content: space-between;
   width: 100%;
   max-width: 1300px;
-  gap: 60px;
+  gap: clamp(30px, 6vw, 60px);
   flex-wrap: wrap;
 }
 
 /* Glassmorphism Cards */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
   border-radius: 25px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  padding: clamp(25px, 4vw, 40px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.38);
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.glass-card:hover {
+.glass-card:hover,
+.glass-card:focus-visible {
   transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Left Content */
@@ -40,7 +43,7 @@
 }
 
 .campuses-content h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
   margin-bottom: 1rem;
   background: linear-gradient(90deg, #ffcc70, #ff9966);
   -webkit-background-clip: text;
@@ -48,51 +51,52 @@
 }
 
 .campuses-content p {
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.8;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.2rem;
 }
 
 /* Campus list styling */
 .campus-list {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: clamp(15px, 3vw, 25px);
 }
 
 .campus-box {
-  padding: 25px;
+  padding: clamp(18px, 3vw, 25px);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.06);
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-.campus-box:hover {
+.campus-box:hover,
+.campus-box:focus-visible {
   background: rgba(255, 255, 255, 0.12);
   transform: scale(1.02);
 }
 
 .campus-box h3 {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   color: #ffcc70;
   margin-bottom: 8px;
 }
 
 .campus-box .address {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1vw, 1rem);
 }
 
 .campus-box .contact {
-  font-size: 0.95rem;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
   color: #ccc;
   margin-top: 4px;
 }
 
 .campus-box .tag {
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
   color: #ffd580;
   display: block;
   margin-top: 6px;
@@ -104,16 +108,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: clamp(20px, 3vw, 40px);
 }
 
 .campuses-map img {
   width: 100%;
   max-width: 500px;
-  height: auto;
   border-radius: 20px;
   opacity: 0.9;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
 .campuses-map img:hover {
@@ -133,12 +136,8 @@
     text-align: center;
   }
 
-  .campuses-content h2 {
-    font-size: 2rem;
-  }
-
   .campuses-map {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 20px;
   }
 }
@@ -146,27 +145,11 @@
 /* ✅ Mobile (≤768px) */
 @media (max-width: 768px) {
   .campuses-section {
-    padding: 60px 5%;
-  }
-
-  .glass-card {
-    padding: 25px;
-  }
-
-  .campuses-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .campuses-content p {
-    font-size: 0.95rem;
+    padding: 50px 5%;
   }
 
   .campus-box {
-    padding: 20px;
-  }
-
-  .campus-box h3 {
-    font-size: 1.1rem;
+    padding: 18px;
   }
 
   .campuses-map img {
@@ -177,20 +160,7 @@
 /* ✅ Small phones (≤480px) */
 @media (max-width: 480px) {
   .campuses-section {
-    padding: 40px 4%;
-  }
-
-  .campuses-content h2 {
-    font-size: 1.6rem;
-  }
-
-  .campuses-content p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  .campus-box h3 {
-    font-size: 1rem;
+    padding: 35px 4%;
   }
 
   .campuses-map img {

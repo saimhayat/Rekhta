@@ -1,31 +1,30 @@
 /* =========================================================
-   🌐 INTERMEDIATE COURSE SECTION — Horizontal Layout (FIXED)
+   🌐 INTERMEDIATE COURSE SECTION — Optimized Responsive
    ========================================================= */
 
 .intermediate-container {
-  padding: 60px 80px;
+  padding: clamp(40px, 6vw, 80px);
   min-height: 100vh;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
   color: #fff;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
 
+/* Better fluid typography */
 .intermediate-title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   text-align: center;
-  color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .intermediate-intro {
   text-align: center;
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto 40px;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.7;
 }
 
@@ -34,224 +33,119 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 14px;
   margin-bottom: 50px;
 }
 
 .tab-button {
-  padding: 12px 25px;
+  padding: 12px 24px;
   border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.26);
+  background: rgba(255,255,255,0.12);
+  transition: background .3s, transform .3s;
 }
 
-.tab-button.active {
-  background: rgba(255, 255, 255, 0.5);
-  color: #000;
-  font-weight: 600;
-}
-
-.tab-button:hover {
-  transform: scale(1.05);
-}
-
-/* =============================== */
-/* ✅ FIXED CONTENT LAYOUT — HORIZONTAL ON DESKTOP */
-/* =============================== */
-
+/* Main content layout */
 .program-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start; /* 👈 Text starts at top */
-  gap: 60px;
-  padding: 40px;
+  gap: clamp(30px, 4vw, 60px);
+  padding: clamp(25px, 4vw, 40px);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.5s ease-in-out;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: all 0.4s;
   text-align: left;
 }
 
 .program-text {
-  flex: 1;
-  color: #fff;
-  text-align: left;
+  flex: 1.1;
+  max-width: 550px;
 }
 
 .program-text h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.5rem, 2vw, 1.8rem);
+  margin-bottom: 14px;
 }
 
 .program-text p {
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.6;
 }
 
 .program-text ul {
-  list-style-type: disc;
-  margin-left: 20px;
+  margin-left: 18px;
+  line-height: 1.6;
 }
 
+/* Image section */
 .program-image {
   flex: 1;
   display: flex;
-  justify-content: flex-end; /* 👈 Image sticks to right */
-  align-items: flex-end;     /* 👈 Image sticks to bottom */
-  min-height: 100%;          /* 👈 Critical: enables bottom alignment */
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .program-image img {
-  width: 400px;
-  max-width: 100%;
-  height: auto;
+  width: clamp(260px, 28vw, 400px);
   border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+  transition: transform .3s;
 }
 
-.program-image img:hover {
-  transform: scale(1.03);
-}
-
-/* ✨ Animations ✨ */
-.fade-in {
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-.slide-left {
-  animation: slideLeft 0.8s ease forwards;
-}
-
-.slide-right {
-  animation: slideRight 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideRight {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* =============================== */
-/* ✅ Responsive Design — Mobile Stays Vertical */
-/* =============================== */
-
-/* Tablets (≤1024px) */
+/* TABLETS */
 @media (max-width: 1024px) {
-  .intermediate-container {
-    padding: 50px 60px;
-  }
-
-  .intermediate-title {
-    font-size: 2.5rem;
-  }
-
-  .program-content {
-    gap: 40px;
-    padding: 30px;
+  .program-text {
+    max-width: 100%;
   }
 
   .program-image img {
-    width: 350px;
+    width: clamp(240px, 40vw, 350px);
   }
 }
 
-/* Mobile (≤768px) */
+/* LARGE MOBILE */
 @media (max-width: 768px) {
-  .intermediate-container {
-    padding: 40px 30px;
-  }
-
-  .intermediate-title {
-    font-size: 2.2rem;
-  }
-
-  .intermediate-intro {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-
   .program-content {
     flex-direction: column;
     text-align: center;
-    padding: 30px 20px;
-    gap: 30px;
+    padding: 26px 20px;
+    gap: 26px;
   }
 
-  .program-text {
-    text-align: center;
-  }
-
-  .program-text h2 {
-    font-size: 1.6rem;
+  .program-text ul {
+    text-align: left;
+    padding-left: 5px;
   }
 
   .program-image {
     justify-content: center;
-    align-items: center;
   }
 
   .program-image img {
-    width: 100%;
-    max-width: 320px;
+    width: clamp(230px, 70vw, 330px);
   }
 
   .tab-button {
     padding: 10px 20px;
-    font-size: 0.95rem;
   }
 }
 
-/* Small Phones (≤480px) */
+/* SMALL MOBILE */
 @media (max-width: 480px) {
-  .intermediate-container {
-    padding: 30px 20px;
+  .program-content {
+    padding: 24px 16px;
   }
 
   .intermediate-title {
-    font-size: 1.8rem;
-  }
-
-  .intermediate-intro {
-    font-size: 0.95rem;
+    font-size: 1.6rem;
   }
 
   .program-text h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .program-text p,
@@ -260,12 +154,22 @@
   }
 
   .program-image img {
-    width: 100%;
-    max-width: 280px;
+    max-width: 260px;
   }
 
   .tab-button {
-    padding: 8px 18px;
-    font-size: 0.9rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ULTRA SMALL SCREENS */
+@media (max-width: 360px) {
+  .program-content {
+    padding: 18px;
+  }
+
+  .program-image img {
+    max-width: 220px;
   }
 }

@@ -3,11 +3,12 @@
   width: 100%;
   min-height: 100vh;
   padding: 4rem 1rem;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  overflow-x: hidden; /* 🛡 Prevent unwanted horizontal scroll */
+  box-sizing: border-box;
 }
 
 /* 🌟 Shared Glassmorphism Card Style */
@@ -23,36 +24,37 @@
 
 /* 🌟 Hero Section */
 .wn-hero {
-  max-width: 900px;
+  max-width: 850px;
+  width: 100%;
   text-align: center;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   padding: 3rem 2rem;
+  border-radius: 20px;
 }
 
 .wn-title {
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   color: #fafafa;
   margin-bottom: 1rem;
 }
 
 .wn-subtitle {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: #ffffff;
   opacity: 0.9;
 }
 
 /* 🌟 Swiper Carousel */
 .wn-carousel {
-  width: 90%;
-  max-width: 1100px;
+  width: min(95%, 1100px);
   overflow: hidden;
 }
 
 .wn-swiper {
   width: 100%;
-  height: 550px;
+  height: 500px;
   border-radius: 20px;
 }
 
@@ -86,13 +88,13 @@
 }
 
 .glassmorphic-overlay h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .glassmorphic-overlay p {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   opacity: 0.9;
 }
 
@@ -112,29 +114,16 @@
   background: #0d47a1;
 }
 
-
 /* 🌍 Responsive Design */
 
-/* For tablets (width ≤ 1024px) */
+/* Tablets (≤ 1024px) */
 @media (max-width: 1024px) {
-  .wn-title {
-    font-size: 2.2rem;
-  }
-
-  .wn-subtitle {
-    font-size: 1rem;
-  }
-
   .wn-swiper {
-    height: 450px;
-  }
-
-  .glassmorphic-overlay h2 {
-    font-size: 1.5rem;
+    height: 420px;
   }
 }
 
-/* For large phones (width ≤ 768px) */
+/* Large phones (≤ 768px) */
 @media (max-width: 768px) {
   .wn-page {
     padding: 2rem 1rem;
@@ -145,54 +134,29 @@
     padding: 2rem 1rem;
   }
 
-  .wn-title {
-    font-size: 2rem;
-  }
-
-  .wn-subtitle {
-    font-size: 0.95rem;
-  }
-
   .wn-swiper {
-    height: 400px;
+    height: 360px;
   }
 
   .glassmorphic-overlay {
-    padding: 1.5rem;
-  }
-
-  .glassmorphic-overlay h2 {
-    font-size: 1.3rem;
-  }
-
-  .glassmorphic-overlay p {
-    font-size: 0.9rem;
+    padding: 1.3rem;
   }
 }
 
-/* For small phones (width ≤ 480px) */
+/* Small phones (≤ 480px) */
 @media (max-width: 480px) {
-  .wn-title {
-    font-size: 1.6rem;
-  }
-
-  .wn-subtitle {
-    font-size: 0.9rem;
-  }
-
   .wn-swiper {
-    height: 300px;
+    height: 280px;
   }
 
   .glassmorphic-overlay {
-    padding: 1rem;
+    padding: 0.9rem;
   }
+}
 
-  .glassmorphic-overlay h2 {
-    font-size: 1.1rem;
-  }
-
-  .glassmorphic-overlay p {
-    font-size: 0.85rem;
+/* Ultra small (≤ 380px) */
+@media (max-width: 380px) {
+  .wn-swiper {
+    height: 240px; /* ✅ Fix overflow on iPhone SE */
   }
 }

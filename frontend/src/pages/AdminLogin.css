@@ -1,5 +1,5 @@
 /* =========================================================
-   🔐 ADMIN LOGIN PAGE — Fully Responsive Glassmorphism
+   🔐 ADMIN LOGIN PAGE — Fully Responsive Glassmorphism (Optimized)
    ========================================================= */
 
 .login-page {
@@ -9,17 +9,25 @@
   justify-content: center;
   background: radial-gradient(circle at top left, #000000, #000000 80%);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-family: "Poppins", sans-serif;
   color: #fff;
   overflow: hidden;
-  padding: 1rem; /* adds breathing room on small screens */
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Prevent mobile zoom on input focus */
+input {
+  font-size: 16px;
 }
 
 .login-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-radius: 20px;
-  padding: 2.5rem;
+  padding: clamp(1.8rem, 4vw, 2.5rem);
   width: 100%;
   max-width: 420px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -28,7 +36,7 @@
 }
 
 .login-card h2 {
-  font-size: 1.9rem;
+  font-size: clamp(1.6rem, 4.5vw, 1.9rem);
   font-weight: 600;
   text-align: center;
   margin-bottom: 1.8rem;
@@ -65,10 +73,14 @@
   transition: all 0.3s ease;
 }
 
-.login-card input:focus {
+.login-card input:focus-visible {
   border-color: #3b82f6;
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
   background: rgba(255, 255, 255, 0.15);
+}
+
+.login-card input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .login-card button {
@@ -84,6 +96,7 @@
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  touch-action: manipulation;
 }
 
 .login-card button:hover {
@@ -94,10 +107,6 @@
 .login-card button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-}
-
-.login-card input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Fade In Animation */
@@ -116,7 +125,25 @@
    📱 Responsive Design
    ============================== */
 
-/* Small Phones (max-width: 480px) */
+/* Ultra Small Devices (320px - 380px) */
+@media (max-width: 380px) {
+  .login-card {
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: none;
+  }
+
+  .login-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .error-box {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Small Phones */
 @media (max-width: 480px) {
   .login-card {
     padding: 1.8rem;
@@ -124,24 +151,13 @@
     border-radius: 16px;
   }
 
-  .login-card h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
-  }
-
   .login-card input,
   .login-card button {
     font-size: 0.9rem;
-    padding: 0.8rem 0.9rem;
-  }
-
-  .error-box {
-    font-size: 0.8rem;
-    padding: 0.6rem 0.8rem;
   }
 }
 
-/* Tablets (481px - 768px) */
+/* Tablets */
 @media (max-width: 768px) {
   .login-page {
     padding: 2rem;
