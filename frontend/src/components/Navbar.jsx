@@ -6,22 +6,23 @@ const Navbar = () => {
   const [isProgramsOpen, setIsProgramsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Close dropdown on mobile if clicked outside
+  // Close dropdown when resizing to desktop
   useEffect(() => {
-    const handleClickOutside = () => {
-      if (window.innerWidth <= 768) {
+    const onResize = () => {
+      if (window.innerWidth > 768) {
         setIsProgramsOpen(false);
+        document.body.style.overflow = "auto";
       }
     };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Stop click bubbling inside dropdown
+  // Disable scrolling when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
+
   const handleDropdownClick = (e) => {
     if (window.innerWidth <= 768) {
       e.stopPropagation();
@@ -29,9 +30,21 @@ const Navbar = () => {
     }
   };
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.navbar') && menuOpen) {
+        setMenuOpen(false);
+        setIsProgramsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [menuOpen]);
+
   return (
     <nav className="navbar">
-      {/* LEFT - Logo */}
       <div className="navbar-left">
         <div className="navbar-logo">
           <img src="/logo.svg" alt="Rekhta Logo" className="logo" />
@@ -39,12 +52,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* HAMBURGER (MOBILE) */}
+      {/* MOBILE HAMBURGER */}
       <div
         className={`hamburger ${menuOpen ? "active" : ""}`}
         onClick={(e) => {
           e.stopPropagation();
           setMenuOpen(!menuOpen);
+          if (menuOpen) setIsProgramsOpen(false);
         }}
       >
         <span></span>
@@ -52,14 +66,30 @@ const Navbar = () => {
         <span></span>
       </div>
 
-      {/* CENTER - NAV LINKS */}
-      <ul className={`navbar-links ${menuOpen ? "active" : ""}`} onClick={(e) => e.stopPropagation()}>
-        <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        </li>
+      {/* NAV LINKS */}
+      <ul
+        className={`navbar-links ${menuOpen ? "active" : ""}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* ✅ Close button inside <li> — valid HTML */}
+        <li className="mobile-menu-header">
+  <button
+    className="close-btn"
+    onClick={() => {
+      setMenuOpen(false);
+      setIsProgramsOpen(false);
+    }}
+    aria-label="Close menu"
+  >
+    ×
+  </button>
+</li>
 
         <li>
-          <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
+          <Link to="/" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Home</Link>
+        </li>
+        <li>
+          <Link to="/about" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>About Us</Link>
         </li>
 
         <li
@@ -68,46 +98,50 @@ const Navbar = () => {
           onMouseLeave={() => window.innerWidth > 768 && setIsProgramsOpen(false)}
           onClick={handleDropdownClick}
         >
-          <Link >
+          <span>
             Programs <span className="arrow">▾</span>
-          </Link>
+          </span>
 
           {isProgramsOpen && (
-            <ul className="dropdown-menu" onClick={(e) => e.stopPropagation()}>
+            <ul className="dropdown-menu">
               <li>
-                <Link to="/programs/SSC" onClick={() => setMenuOpen(false)}>SSC</Link>
+                <Link to="/programs/SSC" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>SSC</Link>
               </li>
               <li>
-                <Link to="/programs/intermediate" onClick={() => setMenuOpen(false)}>Intermediate</Link>
+                <Link to="/programs/intermediate" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Intermediate</Link>
               </li>
               <li>
-                <Link to="/programs/Cambridge" onClick={() => setMenuOpen(false)}>Cambridge</Link>
+                <Link to="/programs/Cambridge" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Cambridge</Link>
               </li>
               <li>
-                <Link to="/programs/ShortCourses" onClick={() => setMenuOpen(false)}>Short Courses</Link>
+                <Link to="/programs/ShortCourses" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Short Courses</Link>
               </li>
             </ul>
           )}
         </li>
 
         <li>
-          <Link to="/admissions" onClick={() => setMenuOpen(false)}>Admissions</Link>
+          <Link to="/admissions" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Admissions</Link>
+        </li>
+        <li>
+          <Link to="/faculty" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Faculty</Link>
+        </li>
+        <li>
+          <Link to="/whats-new" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>What's New</Link>
+        </li>
+        <li>
+          <Link to="/campuses" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>Campuses</Link>
         </li>
 
-        <li>
-          <Link to="/faculty" onClick={() => setMenuOpen(false)}>Faculty</Link>
-        </li>
-
-        <li>
-          <Link to="/whats-new" onClick={() => setMenuOpen(false)}>What's New</Link>
-        </li>
-
-        <li>
-          <Link to="/campuses" onClick={() => setMenuOpen(false)}>Campuses</Link>
+        {/* Mobile-only inquiry button */}
+        <li className="mobile-inquiry">
+          <Link to="/admission-inquiry" onClick={() => { setMenuOpen(false); setIsProgramsOpen(false); }}>
+            Admission Inquiry
+          </Link>
         </li>
       </ul>
 
-      {/* RIGHT - BUTTON */}
+      {/* DESKTOP BUTTON */}
       <div className="navbar-right">
         <Link to="/admission-inquiry" className="inquiry-btn">
           Admission Inquiry
