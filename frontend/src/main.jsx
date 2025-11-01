@@ -5,9 +5,7 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom"; // ✅ Import here
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>   {/* ✅ Wrap your entire app */}
+  <BrowserRouter>   {/* ✅ Wrap your entire app */}
       <App />
     </BrowserRouter>
-  </React.StrictMode>
 );
