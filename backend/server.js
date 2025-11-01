@@ -13,9 +13,7 @@ const app = express();
 // ============================
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = [
-      /^http:\/\/localhost:\d+$/,
-      /^http:\/\/127\.0\.0\.1:\d+$/,
+    const allowedOrigins = ["http://localhost:5173",
       process.env.FRONTEND_URL // ✅ Add this in Vercel env
     ];
 
@@ -73,6 +71,14 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ✅ IMPORTANT: Don't listen here on Vercel
-// (Serverless functions wrap this automatically)
+// ============================
+// 🚀 Local Development Server
+// ============================
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Backend running locally at http://localhost:${PORT}`);
+  });
+}
+
 export default app;
