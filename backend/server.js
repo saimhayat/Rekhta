@@ -4,8 +4,6 @@ import cors from "cors";
 import dotenv from "dotenv";
 import inquiryRoutes from "./routes/inquiryRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
-import path from "path";
-import { fileURLToPath } from "url";
 
 dotenv.config();
 const app = express();
@@ -15,16 +13,16 @@ const app = express();
 // ============================
 const corsOptions = {
   origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-
-    // Allow localhost (for local dev) and your deployed frontend
     const allowedOrigins = [
-      /^http:\/\/localhost:\d+$/, 
+      /^http:\/\/localhost:\d+$/,
       /^http:\/\/127\.0\.0\.1:\d+$/,
-      "https://your-frontend-name.vercel.app" // 🔁 change this to your actual frontend URL after deployment
+      process.env.FRONTEND_URL // ✅ Add this in Vercel env
     ];
 
-    if (allowedOrigins.some((pattern) => pattern.test(origin))) {
+    if (!origin || allowedOrigins.some((pattern) => {
+      if (typeof pattern === "string") return pattern === origin;
+      return pattern.test(origin);
+    })) {
       return callback(null, true);
     }
 
@@ -47,29 +45,16 @@ app.use("/api/inquiry", inquiryRoutes);
 app.use("/api/admin", adminRoutes);
 
 // ============================
-// 🧠 MongoDB Connection
+// 🧠 MongoDB Connection (Serverless safe)
 // ============================
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("✅ MongoDB Atlas Connected Successfully");
-  } catch (err) {
-    console.error("❌ MongoDB connection error:", err.message);
-  }
-};
-connectDB();
+if (!global._mongooseConnected) {
+  mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => console.log("✅ MongoDB Atlas Connected"))
+    .catch((err) => console.error("❌ MongoDB Error:", err.message));
 
-// ============================
-// 🌐 Serve Frontend (for Vercel full MERN setup)
-// ============================
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const frontendPath = path.join(__dirname, "../frontend/build");
-
-app.use(express.static(frontendPath));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(frontendPath, "index.html"));
-});
+  global._mongooseConnected = true;
+}
 
 // ============================
 // 💥 Global Error Handler
@@ -88,5 +73,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// ✅ For Vercel: export app (instead of app.listen)
+// ✅ IMPORTANT: Don't listen here on Vercel
+// (Serverless functions wrap this automatically)
 export default app;
