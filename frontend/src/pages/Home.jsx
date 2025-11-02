@@ -168,9 +168,9 @@ const Home = () => {
               src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500&q=80"
               alt="Rida Fatima"
             />
-            <h3>Rida Fatima</h3>
+            <h3>Usman</h3>
             <p>1st Position (Overall)</p>
-            <span>KIPS College Lahore</span>
+            <span>Rekhta Academy</span>
           </div>
 
           <div className="position-card">
@@ -178,9 +178,9 @@ const Home = () => {
               src="https://images.unsplash.com/photo-1594122230689-45899d9e6f69?w=500&q=80"
               alt="Asma Ijaz"
             />
-            <h3>Asma Ijaz</h3>
+            <h3>Ayesha</h3>
             <p>2nd Position (Overall)</p>
-            <span>KIPS College Lahore</span>
+            <span>Rekhta Academy</span>
           </div>
 
           <div className="position-card">
@@ -188,9 +188,9 @@ const Home = () => {
               src="https://images.unsplash.com/photo-1618355776464-8666794d2520?w=500&q=80"
               alt="Azka Abdulrehman"
             />
-            <h3>Azka Abdulrehman</h3>
+            <h3>Nadia</h3>
             <p>2nd Position</p>
-            <span>KIPS College Lahore</span>
+            <span>Rekhta Academy</span>
           </div>
         </div>
       </section>
