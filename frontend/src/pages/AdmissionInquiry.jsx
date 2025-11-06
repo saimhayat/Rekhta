@@ -26,10 +26,18 @@ const courseData = {
   Intermediate: ["F.Sc", "ICS", "I.Com", "F.A"],
   Cambridge: ["O&A Levels", "IGCSE"],
   "Short Course": [
-    "English Language",
-    "IELTS",
-    "Computer Basics",
     "Graphic Designing",
+    "Digital Marketing",
+    "Video Editing",
+    "YouTube",
+    "Taxation",
+    "Accounts",
+    "Amazon",
+    "Shopify",
+    "eBay",
+    "Daraz",
+    "Trading",
+    "TikTok Shop",
   ],
 };
 
